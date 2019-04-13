@@ -43,7 +43,7 @@ class _PaginaNoticias extends State<PaginaNoticias>{
                         )
                       ],
                     ),
-                    Text(data[i]['titulo'], style: TextStyle (fontSize: 20,),textAlign: TextAlign.center,),
+                    Text(data[i]['titulo'], style: TextStyle (fontSize: 15,),textAlign: TextAlign.center,),
                     Align(
                        alignment: Alignment.centerRight,
                        child: Text(data[i]['updated_at']),
