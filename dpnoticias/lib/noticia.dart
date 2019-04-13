@@ -34,7 +34,6 @@ class _PaginaNoticias extends State<PaginaNoticias>{
                 return new CircularProgressIndicator();
               }
               else
-
               return new InkWell(
                 child:  Card(
                 child: Column(
@@ -59,9 +58,7 @@ class _PaginaNoticias extends State<PaginaNoticias>{
               ),
               onTap: (){
                 Navigator.push(context, new MaterialPageRoute(
-
                 builder: (BuildContext context) => new PaginaDetalle(data[i]))
-
                 );
                },
               );
@@ -71,7 +68,6 @@ class _PaginaNoticias extends State<PaginaNoticias>{
     );
   }
 }
-
 
 class PaginaDetalle extends StatelessWidget{
   PaginaDetalle(this.data);
