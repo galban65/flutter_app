@@ -30,7 +30,13 @@ class _PaginaNoticias extends State<PaginaNoticias>{
         child: new ListView.builder(
           itemCount: data==null ? 0 : data.length,
             itemBuilder: (BuildContext context, i){
-              return new Card(
+              if (data==null){
+                return new CircularProgressIndicator();
+              }
+              else
+
+              return new InkWell(
+                child:  Card(
                 child: Column(
                   children: <Widget>[
                     Stack(
@@ -50,6 +56,14 @@ class _PaginaNoticias extends State<PaginaNoticias>{
                     )
                   ],
                 ),
+              ),
+              onTap: (){
+                Navigator.push(context, new MaterialPageRoute(
+
+                builder: (BuildContext context) => new PaginaDetalle(data[i]))
+
+                );
+               },
               );
             }
         )
@@ -57,3 +71,30 @@ class _PaginaNoticias extends State<PaginaNoticias>{
     );
   }
 }
+
+
+class PaginaDetalle extends StatelessWidget{
+  PaginaDetalle(this.data);
+  final data;
+
+  @override
+
+  Widget build(BuildContext context){
+    return new Scaffold(
+      appBar: AppBar(title: Text(data["titulo"]),),
+      body: new ListView(
+        children: <Widget>[
+          Image.network("http://192.168.1.4/fixture/public/img/noticias/"+data['urlfoto']),
+          Container(
+            padding:const EdgeInsets.all(20.0) ,
+            child: Text(data["descripcion"],textAlign: TextAlign.justify),
+          ),
+          Container(
+            child: Text("publicado el "+data["updated_at"], textAlign:TextAlign.right),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
