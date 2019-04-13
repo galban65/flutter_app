@@ -82,7 +82,7 @@ class PaginaDetalle extends StatelessWidget{
         children: <Widget>[
           Image.network("http://192.168.1.4/fixture/public/img/noticias/"+data['urlfoto']),
           Container(
-            padding:const EdgeInsets.all(20.0) ,
+            padding:const EdgeInsets.all(15.0) ,
             child: Text(data["descripcion"],textAlign: TextAlign.justify),
           ),
           Container(
