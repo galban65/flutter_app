@@ -7,7 +7,7 @@ class PaginaNoticias extends StatefulWidget{
   _PaginaNoticias createState() => new _PaginaNoticias();
 }
 class _PaginaNoticias extends State<PaginaNoticias>{
-  String url="http://192.168.1.3/fixture/public/jsonnoticias";
+  String url="http://192.168.1.4/fixture/public/jsonnoticias";
   List data;
   Future<String> Recibir() async{
     var response =await http.get(Uri.encodeFull(url), headers: {"Accept":"application/json"});
@@ -38,7 +38,7 @@ class _PaginaNoticias extends State<PaginaNoticias>{
                         Center(child: CircularProgressIndicator(),),
                         Center(
                           child: Image.network(
-                            "http://192.168.1.3/fixture/public/img/noticias/"+data[i]['urlfoto']
+                            "http://192.168.1.4/fixture/public/img/noticias/"+data[i]['urlfoto']
                           ),
                         )
                       ],
