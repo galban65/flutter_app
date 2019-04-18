@@ -7,9 +7,9 @@ class PaginaNoticias extends StatefulWidget{
   _PaginaNoticias createState() => new _PaginaNoticias();
 }
 class _PaginaNoticias extends State<PaginaNoticias>{
-  String url="http://192.168.1.4/fixture/public/jsonnoticias";
+  String url="http://192.168.1.5/fixture/public/jsonnoticias";
   List data;
-  Future<String> Recibir() async{
+  Future <String> Recibir() async{
     var response =await http.get(Uri.encodeFull(url), headers: {"Accept":"application/json"});
     setState(() {
       var extraerData= json.decode(response.body);
@@ -43,7 +43,7 @@ class _PaginaNoticias extends State<PaginaNoticias>{
                         Center(child: CircularProgressIndicator(),),
                         Center(
                           child: Image.network(
-                            "http://192.168.1.4/fixture/public/img/noticias/"+data[i]['urlfoto']
+                            "http://192.168.1.5/fixture/public/img/noticias/"+data[i]['urlfoto']
                           ),
                         )
                       ],
@@ -80,7 +80,7 @@ class PaginaDetalle extends StatelessWidget{
       appBar: AppBar(title: Text(data["titulo"]),),
       body: new ListView(
         children: <Widget>[
-          Image.network("http://192.168.1.4/fixture/public/img/noticias/"+data['urlfoto']),
+          Image.network("http://192.168.1.5/fixture/public/img/noticias/"+data['urlfoto']),
           Container(
             padding:const EdgeInsets.all(15.0) ,
             child: Text(data["descripcion"],textAlign: TextAlign.justify),
